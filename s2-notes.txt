@@ -12,3 +12,12 @@ or
 yarn create next-app
 
 (those commands get the most updated version from next)
+
+  yarn dev
+    Starts the development server.
+
+  yarn build
+    Builds the app for production.
+
+  yarn start
+    Runs the built app in production mode.
