@@ -1,0 +1,14 @@
+Section 2
+
+Next.js | Setting boilerplate
+
+
+
+
+npx create-next-app
+
+or
+
+yarn create next-app
+
+(those commands get the most updated version from next)

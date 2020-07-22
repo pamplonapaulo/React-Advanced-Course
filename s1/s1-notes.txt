@@ -1,0 +1,19 @@
+Section 1
+
+Theory / Introduction
+
+- typescript
+- cypress
+- next.js
+- strapi
+- graphQL
+
+
+Next.js
+
+- Server Side Rendering
+- Static Site Generation (like Gatsby also does)
+- css-in-js (styled-jsx, styled-components, emotion, etc.)
+- no settings (such as routes, hot reloading, code splitting, etc.)
+- totally extensible (babel/webpack, plugins)
+- optimized to production
