@@ -6,11 +6,8 @@ Next.js | Setting boilerplate
 
 
 npx create-next-app
-
 or
-
 yarn create next-app
-
 (those commands get the most updated version from next)
 
 Pick a template › - Use arrow-keys. Return to submit.
@@ -21,9 +18,6 @@ Pick a template › - Use arrow-keys. Return to submit.
   https://github.com/vercel/next.js/tree/canary/examples
 
   we aren't picking anything, just go with default.
-
-
-
 
   yarn dev
     Starts the development server.
