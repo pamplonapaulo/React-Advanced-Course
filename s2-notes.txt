@@ -27,3 +27,271 @@ Pick a template › - Use arrow-keys. Return to submit.
 
   yarn start
     Runs the built app in production mode.
+
+
+Next by default already provides a PAi folder, inside pages, but we are not using it since we're gonna have strapi for that.
+
+
+Class 11: Typescript!!!
+
+  touch tsconfig.json
+
+  yarn add --dev typescript @types/react @types/node
+
+  yarn dev
+  
+  "We detected TypeScript in your project and created a tsconfig.json file for you.
+
+  Your tsconfig.json has been populated with default values."
+
+
+  Our customization:
+
+  tsconfig.json:
+
+      default:
+
+        "strict": false
+
+      We:
+
+        "strict": true
+
+  New folder:
+
+  'src'
+
+  Then move 'pages' to inside 'src'
+
+  Rename index.js to index.tsx
+
+  Typescript formats:
+
+      .ts
+      .tsx (typescript with support to JSX)
+
+  Also: every JS file is also a TS valid file.
+
+index.tsx
+
+      type Props = {
+        title: string
+      }
+
+      function Home({ title = 'Advanced React' }: Props) {
+        .....
+      }
+
+
+  Class 12: editorconfig
+
+  Have the plugin on VS Code (checked!)
+  New file in the project:  .editorconfig
+
+  .editorconfig content:
+
+          root = true
+
+          [*]
+          ident_style = spaces
+          ident_size = 2
+          end_of_line = lf
+          charset = utf-8
+          trim-trim_trailing_whitespace = true
+          insert_final_newline = true
+
+  Then every new file comes with this settings.
+
+
+
+
+  Class 13: ESLint
+
+    VS Code Plugin ESLint
+
+    Terminal
+    npx eslint --init
+
+        ✔ How would you like to use ESLint? · problems
+        ✔ What type of modules does your project use? · esm
+        ✔ Which framework does your project use? · react
+        ✔ Does your project use TypeScript? · No / Yes
+        ✔ Where does your code run? · browser
+        ✔ What format do you want your config file to be in? · JSON
+        Local ESLint installation not found.
+        The config that you've selected requires the following dependencies:
+
+        eslint-plugin-react@latest @typescript-eslint/eslint-plugin@latest @typescript-eslint/parser@latest eslint@latest
+        ✔ Would you like to install them now with npm? · No / Yes
+
+    yarn add --dev eslint-plugin-react@latest @typescript-eslint/eslint-plugin@latest @typescript-eslint/parser@latest eslint@latest
+
+
+    .eslintrc.json
+
+    eslint-plugin-react-hooks
+
+          https://www.npmjs.com/package/eslint-plugin-react-hooks
+
+          yarn add eslint-plugin-react-hooks --dev
+
+
+          {
+            "plugins": [
+              // ...
+              "react-hooks"
+            ],
+            "rules": {
+              // ...
+              "react-hooks/rules-of-hooks": "error",
+              "react-hooks/exhaustive-deps": "warn"
+            }
+          }
+
+    Copy and paste it inside .eslintrc.json
+
+    .eslintrc.json
+
+    Proptypes:
+
+        Deactivate 
+        https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prop-types.md
+
+        "rules": {
+            "react/prop-types": "off"
+        }
+
+    react/react-in-jsx-scope
+
+    https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md
+
+
+    Next has react already imported globally, so there is no need to have it.
+
+        "rules": {
+            "react/react-in-jsx-scope": "off"
+        }
+
+
+
+    explicit-module-boundary-types
+
+    https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/explicit-module-boundary-types.md
+
+    Some times typescript knows the type, like when a number. So we can deactivate this rule .
+
+    But we still must keep setting type when not type is not implicit.
+
+    Also set the React version:
+
+    https://github.com/yannickcr/eslint-plugin-react#configuration
+
+              "settings": {
+                  "react": {
+                      "version": "detect"
+                  }
+              },
+
+
+    Terminal:
+
+      eslint src
+
+      or
+
+      eslint src --fix
+
+
+  CLass 14: Prettier
+
+  https://prettier.io/
+
+  https://github.com/prettier/eslint-config-prettier#installation
+
+recommended: for integration with ESLint
+
+.eslintrc.json:
+
+      "extends": [
+        "plugin:prettier/recommended"
+    ],
+
+Terminal
+    yarn add --dev eslint-config-prettier eslint-plugin-prettier
+
+
+new file:
+.prettierrc:
+
+      {
+        "trailingComma": "none",
+        "semi": false,
+        "singleQuote": true
+      }
+
+
+On VSCode:
+https://github.com/prettier/prettier-vscode#run-prettier-through-linters
+
+mkdir .vscode
+new file: settings.json
+
+content:
+
+"editor.formatOnSave": false,
+"editor.codeActionsOnSave": {
+    // For ESLint
+    "source.fixAll.eslint": true,
+    // For TSLint
+    "source.fixAll.tslint": true,
+    // For Stylelint
+    "source.fixAll.stylelint": true
+}
+
+or:
+
+{
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true,
+  }
+}
+
+
+
+Class 15: Husky & Git Hook
+
+https://github.com/typicode/husky
+
+https://github.com/okonet/lint-staged
+
+Git Hook forces a ESLint test before allow a commit on the repo
+
+Terminal
+yarn add --dev lint-staged husky
+
+
+package.json:
+
+{
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint src --max-warning=0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*": ["yarn lint --fix"]
+  }
+}
+
+husky > pre-commit (node v12.3.1)
+✔ Preparing...
+✔ Running tasks...
+✔ Applying modifications...
+✔ Cleaning up... 
+[dev 148ef93] eslint ok
+
+# Testing git
