@@ -406,3 +406,93 @@ on Next.js
     src/pages/_document.js
 
     https://github.com/vercel/next.js/blob/canary/examples/with-styled-components/pages/_document.js
+
+    getInitialProps(ctx: DocumentContext)
+
+  class 20: global style
+
+
+  https://styled-components.com/docs/api#createglobalstyle
+
+  https://nextjs.org/docs/advanced-features/custom-app
+
+
+  src/global/styles.ts
+  
+  Absolute Imports
+  https://nextjs.org/docs/advanced-features/module-path-aliases
+
+  Class 22: Jest integration
+
+  https://styled-components.com/docs/tooling#jest-integration
+
+      "jest-styled-components": "^7.0.2",
+
+  Class 23: Setting Storybook
+
+  https://storybook.js.org/
+
+  https://storybook.js.org/docs/guides/guide-react/
+
+  https://storybook.js.org/docs/presets/introduction/
+
+  https://storybook.js.org/docs/basics/writing-stories/
+
+  Decorations
+  https://storybook.js.org/docs/addons/introduction/
+
+  Knobs
+  https://github.com/storybookjs/storybook/tree/master/addons/knobs
+
+  https://github.com/React-Avancado/boilerplate/commit/fa7d11a2447237c15e57245202d3300ec8ff1e38
+
+
+  Class 23: Progressive Web Application (PWA)
+
+  https://web.dev/progressive-web-apps/
+
+  https://www.npmjs.com/package/next-pwa
+
+  https://github.com/React-Avancado/boilerplate/commit/a409075383c260d77356ded39915098da40b3f14
+
+
+
+next.config.js
+
+const withPWA = require('next-pwa')
+const isProd = process.env.NODE_ENV === 'production'
+
+module.exports = withPWA({
+  pwa: {
+    dest: 'public',
+    disable: !isProd
+  }
+})
+
+
+Run it:
+I created this script in package.json
+"build:pwa": "NOVE_ENV=production yarn build",
+
+Then test running 'yarn start'
+
+
+
+Class 25: Reusing the boilerplate
+
+Terminal:
+
+yarn create next-app -e https://github.com/React-Avancado/boilerplate
+
+
+
+
+
+
+
+
+
+
+
+
+
