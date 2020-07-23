@@ -295,3 +295,114 @@ husky > pre-commit (node v12.3.1)
 [dev 148ef93] eslint ok
 
 # Testing git
+
+Class 16:
+
+Jest (with babel and for typescript)
+
+https://jestjs.io/docs/en/getting-started#using-typescript
+https://jestjs.io/
+
+Terminal
+yarn add --dev jest @babel/preset-typescript @types/jest
+
+edit
+.eslintrc.json:
+
+    include in "env":
+
+    "env": {
+        "jest": true,
+        "node": true (cuz will use 'module.exports', which is node)
+    },
+
+New file:
+
+jest.config.js:
+
+    include:
+
+          module.exports = {
+            testEnvironment: 'jsdom',
+            testPathIgnorePatters: ['/node_module/', '/next/'],
+            collectCoverage: true,
+            collectCoverageFrom: ['src/**/*.ts(x)'],
+            setupFilesAfterEnv: ['>rotDir>/.jest/setup.ts']
+          }
+
+
+Setting up Babel:
+
+
+.babelrc:
+
+        {
+          "presets": ["next/babel", "@babel/preset-typescript"]
+        }
+
+
+package.json
+
+      new script:
+
+          "test": "jest"
+
+
+new folder
+
+        .jest
+
+        new file:
+
+            setup.ts
+
+
+Class 17: React Testing Library
+
+https://testing-library.com/docs/react-testing-library/cheatsheet
+https://testing-library.com/docs/react-testing-library/intro
+
+      yarn add --dev @testing-library/react @testing-library/jest-dom
+
+setting up:
+
+        .jest/setup.ts:
+
+        import '@testing-library/jest-dom'
+
+        
+Class 19:
+
+Styled Components: with SSR and Typescript
+https://styled-components.com/docs/advanced#nextjs
+https://styled-components.com/docs/basics#installation
+https://styled-components.com/docs/api#typescript
+https://styled-components.com/docs/tooling#serverside-rendering
+https://nextjs.org/docs/advanced-features/custom-document
+
+
+babel:
+
+package.json:
+
+        "babel-plugin-styled-components": "^1.10.7",
+
+babel:
+
+        {
+          "plugins": [
+            [
+              "babel-plugin-styled-components",
+              {
+                "ssr": true
+              }
+            ]
+          ],
+          "presets": ["next/babel", "@babel/preset-typescript"]
+        }
+
+on Next.js
+
+    src/pages/_document.js
+
+    https://github.com/vercel/next.js/blob/canary/examples/with-styled-components/pages/_document.js
