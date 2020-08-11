@@ -1,0 +1,363 @@
+Strapi
+
+https://github.com/strapi/strapi
+
+https://strapi.io/documentation/v3.x/getting-started/installation.html
+
+If you use a custom database, this one has to be up and running before creating your Strapi project
+
+PostgreSQL
+
+https://www.postgresql.org/download/
+
+
+Installation Directory: /Library/PostgreSQL/12
+Server Installation Directory: /Library/PostgreSQL/12
+Data Directory: /Library/PostgreSQL/12/data
+Database Port: 5432
+Database Superuser: postgres
+Operating System Account: postgres
+Database Service: postgresql-12
+Command Line Tools Installation Directory: /Library/PostgreSQL/12
+pgAdmin4 Installation Directory: /Library/PostgreSQL/12/pgAdmin 4
+Stack Builder Installation Directory: /Library/PostgreSQL/12
+
+https://yizeng.me/2015/02/09/install-and-setup-postgresql-for-ruby-on-rails-on-mac-os/
+
+
+PATH=$PATH:/Library/PostgreSQL/12/bin
+
+backup: open ~/.bash_profile
+
+
+        parse_git_branch() {
+            git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+        }
+        export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
+        export PATH=/usr/local/php5/bin:$PATH
+        PATH=$PATH:/Library/PostgreSQL/12/bin
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+        [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+        export PATH="$(yarn global bin):$PATH"
+
+or
+
+        parse_git_branch() {
+            git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+        }
+        export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
+        export PATH=/Applications/MAMP/bin/php/php7.2.10/bin:$PATH
+        PATH=$PATH:/Library/PostgreSQL/12/bin
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+        [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+        export PATH="$(yarn global bin):$PATH"
+
+
+Homebrew installing postgres
+
+paulopamplona@PAULOs-MacBook-Pro ~ (master) $ brew install postgres
+==> Downloading https://homebrew.bintray.com/bottles/krb5-1.18.2.catalina.bottle.tar.gz
+==> Downloading from https://d29vzk4ow07wi7.cloudfront.net/db39e4570abab6459fb857cb41fdd0a375810d25a4c712f4504585255397d150?response-content-disposition
+######################################################################## 100.0%
+==> Downloading https://homebrew.bintray.com/bottles/postgresql-12.3_4.catalina.bottle.tar.gz
+==> Downloading from https://d29vzk4ow07wi7.cloudfront.net/069912aa3d10ecb548eb2dddd7e3e1be61d1689d236b5993bce3e1a31811bcd0?response-content-disposition
+######################################################################## 100.0%
+==> Installing dependencies for postgresql: krb5
+==> Installing postgresql dependency: krb5
+==> Pouring krb5-1.18.2.catalina.bottle.tar.gz
+==> Caveats
+krb5 is keg-only, which means it was not symlinked into /usr/local,
+because macOS already provides this software and installing another version in
+parallel can cause all kinds of trouble.
+
+If you need to have krb5 first in your PATH run:
+  echo 'export PATH="/usr/local/opt/krb5/bin:$PATH"' >> /Users/paulopamplona/.bash_profile
+  echo 'export PATH="/usr/local/opt/krb5/sbin:$PATH"' >> /Users/paulopamplona/.bash_profile
+
+For compilers to find krb5 you may need to set:
+  export LDFLAGS="-L/usr/local/opt/krb5/lib"
+  export CPPFLAGS="-I/usr/local/opt/krb5/include"
+
+For pkg-config to find krb5 you may need to set:
+  export PKG_CONFIG_PATH="/usr/local/opt/krb5/lib/pkgconfig"
+
+==> Summary
+🍺  /usr/local/Cellar/krb5/1.18.2: 162 files, 4.0MB
+==> Installing postgresql
+==> Pouring postgresql-12.3_4.catalina.bottle.tar.gz
+==> /usr/local/Cellar/postgresql/12.3_4/bin/initdb --locale=C -E UTF-8 /usr/local/var/postgres
+==> Caveats
+To migrate existing data from a previous major version of PostgreSQL run:
+  brew postgresql-upgrade-database
+
+To have launchd start postgresql now and restart at login:
+  brew services start postgresql
+Or, if you don't want/need a background service you can just run:
+  pg_ctl -D /usr/local/var/postgres start
+==> Summary
+🍺  /usr/local/Cellar/postgresql/12.3_4: 3,220 files, 37.8MB
+==> Caveats
+==> krb5
+krb5 is keg-only, which means it was not symlinked into /usr/local,
+because macOS already provides this software and installing another version in
+parallel can cause all kinds of trouble.
+
+If you need to have krb5 first in your PATH run:
+  echo 'export PATH="/usr/local/opt/krb5/bin:$PATH"' >> /Users/paulopamplona/.bash_profile
+  echo 'export PATH="/usr/local/opt/krb5/sbin:$PATH"' >> /Users/paulopamplona/.bash_profile
+
+For compilers to find krb5 you may need to set:
+  export LDFLAGS="-L/usr/local/opt/krb5/lib"
+  export CPPFLAGS="-I/usr/local/opt/krb5/include"
+
+For pkg-config to find krb5 you may need to set:
+  export PKG_CONFIG_PATH="/usr/local/opt/krb5/lib/pkgconfig"
+
+==> postgresql
+To migrate existing data from a previous major version of PostgreSQL run:
+  brew postgresql-upgrade-database
+
+To have launchd start postgresql now and restart at login:
+  brew services start postgresql
+Or, if you don't want/need a background service you can just run:
+  pg_ctl -D /usr/local/var/postgres start
+
+Main Commands:
+
+psql postgres
+
+CREATE USER nome-aqui WITH ENCRYPTED PASSWORD 'senha';
+
+CREATE DATABASE nome_do_banco OWNER nome_usuario;
+
+\du (list users)
+
+\l (list databases)
+
+CREATE USER strapi WITH ENCRYPTED PASSWORD 'strapi';
+
+GRANT ALL PRIVILEGES ON DATABASE strapi TO strapi;
+
+DROP USER strapy;
+
+DROP DATABASE wrong-strapi;
+
+\q (quit)
+
+Class 31: Iniciando o Strapi local
+
+https://strapi.io/documentation/v3.x/getting-started/quick-start.html
+
+
+
+Terminal:
+
+  yarn create strapi-app react-strapi-api
+
+
+So far, Strapi works better with relational-databases, that's why we don't use mongoDB.
+Also, we don't use here sqlite cuz this one uses files, which is not the most safe way.
+Postgres, doesn't use files and is a relational-database, more connected to Strapi's idea nowadays, it's performance is better.
+
+  ? Choose your installation type Custom (manual settings)
+  ? Choose your default database client postgres
+  ? Database name: strapi
+  ? Host: 127.0.0.1
+  ? Port: 5432
+  ? Username: strapi
+  ? Password: ******
+  ? Enable SSL connection: No
+
+
+  cd /Applications/MAMP/htdocs/__FRONT/_react/_curso-justen-apps/react-strapi-api
+  
+  yarn develop
+
+
+Class 35:
+
+Strapi CONFIG structure:
+
+
+    config/database.js
+
+        you may want a specific folder for production, staging, development, etc:
+          
+          config/production/database.js
+
+        like you may want one DB for dev and another for PROD...
+
+        And all of them may be set to the same env vars:
+
+        https://strapi.io/documentation/v3.x/concepts/configurations.html#environment-variables
+
+        
+    Cron jobs
+
+        Like promo emails...
+        Etc.
+
+
+Class 37:
+
+https://strapi.io/documentation/v3.x/concepts/controllers.html
+
+https://strapi.io/documentation/v3.x/concepts/models.html
+
+Content-Type-Builder:
+
+nesting components/ component's tree is up to 2 levels, we can't keep diving deeper.
+
+
+Class 48: Strapi updates
+
+When we decide to update our Strapi, by changing versions in the package.json and installing them, before run again (yarn develop) we have to make another build, so in this case "yarn build", then we are good to run the "yarn develop".
+
+Class 49: CKEditor
+
+Specific plugin for good Rich Text, the defult Strapi's rich text is actually markdown, which is not friendly to a non-developer as a normal client.
+
+https://ckeditor.com/ckeditor-5/
+
+Install:
+
+https://strapi.io/documentation/v3.x/guides/registering-a-field-in-admin.html#creating-a-new-field-in-the-administration-panel
+
+
+Terminal:
+
+    yarn strapi generate:plugin wysiwyg
+
+    (what you see is what you get: wysiwyg)
+
+Install the needed dependencies:
+    cd plugins/wysiwyg
+    yarn add @ckeditor/ckeditor5-react @ckeditor/ckeditor5-build-classic
+
+    OBS: Professor got a issue at Heroku, which I'm not using now. He solved the issue by running the dependency's install at the root of Strapi
+
+I'm not copying everything. Follow the tutorial in the link.
+
+https://strapi.io/documentation/v3.x/guides/registering-a-field-in-admin.html#setup
+
+One cool thing, if neessary: the CKeditor/index.js contains the toolbar, which we can customize:
+
+const configuration = {
+  toolbar: [
+    'heading',
+    '|',
+    'bold',
+    'italic',
+    'link',
+    'bulletedList',
+    'numberedList',
+    '|',
+    'indent',
+    'outdent',
+    '|',
+    'blockQuote',
+    'insertTable',
+    'mediaEmbed',
+    'undo',
+    'redo',
+  ],
+};
+
+In one of the files we changed as following the tutorial, it might actually be much more readable to a client:
+
+<Button color="primary" onClick={handleToggle}>
+  Add Image
+</Button>
+
+So "Add image" insted of "MediaLib".
+
+
+
+Class 51: import/export PostgreSQL
+
+
+          Populating with dump from PostgreSQL
+
+          Provided file: strapi.sql (from professor). Put it on the project root folder.
+
+
+          psql -h 127.0.0.1 -U strapi -d strapi -W < strapi.sql
+
+
+            User (-U): strapi
+            Database (-d): strapi
+            Password (-W): strapi
+
+          How to generate a backup file from our database like this strapi.sql?
+
+          pg_dump -c --if-exists --exclude-table=strapi_administrator -h 127.0.0.1 -U strapi -d strapi -W > strapi_new.sql
+
+          < from right to left (from the file strapi.sql to the DB strapi)
+
+          > from left to right (from the DB strapi to the file strapi_new.sql)
+
+Class 52: Strapi REST API
+
+api/author/config/routes.js
+api/landing-page/config/routes.js
+
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/landing-page",
+      "handler": "landing-page.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/landing-page",
+      "handler": "landing-page.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/landing-page",
+      "handler": "landing-page.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
+
+How to have access to the routes?
+
+http://localhost:1337/admin/plugins/users-permissions/roles
+
+-> 'public'
+
+check 'find', 'findone', 'count', etc.
+
+Try access:
+
+http://localhost:1337/authors
+JSON obj should be displayed.
+
+http://localhost:1337/authors/4 (for find author id 4)
+
+52: Rest API into GraphQL
+
+http://localhost:1337/admin/marketplace
+
+Find plugin GraphQL. Click download.
+
+Wait. Check log in Terminal. Wait the server to restart by itself.
+
+Check GraphQL Playground: 
+
+http://localhost:1337/graphql
+
+good for tests, querys, test requests, etc
+

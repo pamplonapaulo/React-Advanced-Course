@@ -484,9 +484,10 @@ Terminal:
 
 yarn create next-app -e https://github.com/React-Avancado/boilerplate
 
+My own (which is almost the same)
 
 
-
+yarn create next-app -e https://github.com/pamplonapaulo/boilerplate
 
 
 
